@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>International Recipe Viewer</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: sandybrown;
+      color: #333;
+    }
+    #recipe-form-container {
+      text-align: center;
+      font-size:larger;
+      border: 1px solid #ddd;
+      padding: 60px;
+      max-width: 800px;
+      background-color:blanchedalmond;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    #meal-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+    .meal {
+      flex: 0 0 calc(20% - 20px);
+      margin: 10px;
+      border: 1px solid #ddd;
+      padding: 10px;
+      background-color:blanchedalmond;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color:brown;
+      font-family:cursive;
+    }
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      color: #555;
+    }
+    select, input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.7);
+    }
+
+    .modal-content {
+      background-color:bisque;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    #first-button {
+      gap: 10px;
+    }
+    #second-button {
+      gap: 20px;
+      margin-top: 20px;
+    }
+  </style>
+  <!-- <script type="module" crossorigin src="/your-repo-name-here/assets/index-RkC2kJwo.js"></script> -->
+  <script type="module" crossorigin src="/recipe-viewer/assets/index-P7tVgaQD.js"></script>
+</head>
+<body>
+  <h1>International Recipe Viewer</h1>
+
+  <div id="recipe-form-container">
+    <form id="recipeForm">
+      <label for="country-selector">Select Country:</label>
+      <select id="country-selector" name="country"></select>
+
+      <label for="results">Results per Page:</label>
+      <select id="results" name="results">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="50">50</option>
+      </select>
+
+      <div id="first-button">
+      <button type="button" id="search-meal-btn">Search</button>
+    </div>
+    </form>
+
+    <div id="second-button">
+    <button type="button" id="random-meal-btn">Get Random Recipe</button>
+  </div>
+  </div>
+
+  
+  <div id="meal-details-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="close-modal">&times;</span>
+      <div id="meal-details-content"></div>
+    </div>
+  </div>
+
+  <div id="meal-container"></div>
+
+</body>
+</html>
+
+
+
+
